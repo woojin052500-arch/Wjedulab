@@ -497,18 +497,18 @@ footer { background: var(--ink); color: var(--white); padding: 80px 0 44px; }
         <div class="footer-contact-label">Business Contact</div>
         <div class="contact-rows">
           <div class="contact-row"><span class="ck">CEO</span><span class="cv">염우진 (Yeom Woo-jin)</span></div>
-          <div class="contact-row"><span class="ck">Email</span><span class="cv"><a href="/cdn-cgi/l/email-protection#384f5757525156080d0a0d0809785f55595154165b5755"><span class="__cf_email__" data-cfemail="a8dfc7c7c2c1c6989d9a9d9899e8cfc5c9c1c486cbc7c5">[email&#160;protected]</span></a></span></div>
+          <div class="contact-row"><span class="ck">Email</span><span class="cv"><a href="mailto:woojin052501@gmail.com">woojin052501@gmail.com</a></span></div>
           <div class="contact-row"><span class="ck">Product</span><span class="cv"><a href="https://highschool-score.com" target="_blank">highschool-score.com</a><br><a href="https://scorewiki.vercel.app/wiki" target="_blank">scorewiki.vercel.app</a></span></div>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 WJedulab. All rights reserved.<br>대표: 염우진 &nbsp;|&nbsp; 충청남도 &nbsp;|&nbsp; 사업자 등록 완료</div>
-      <div class="footer-links"><a href="https://highschool-score.com" target="_blank">Highschool-score</a><a href="https://scorewiki.vercel.app/wiki" target="_blank">ScoreWiki</a><a href="/cdn-cgi/l/email-protection#80f7efefeae9eeb0b5b2b5b0b1c0e7ede1e9ecaee3efed">Contact</a></div>
+      <div class="footer-links"><a href="https://highschool-score.com" target="_blank">Highschool-score</a><a href="https://scorewiki.vercel.app/wiki" target="_blank">ScoreWiki</a><a href="mailto:woojin052501@gmail.com">Contact</a></div>
     </div>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const ro = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -518,29 +518,38 @@ const ro = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
 document.querySelectorAll('.rv, .rv-left').forEach(el => ro.observe(el));
+
 const skillObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.querySelectorAll('.skill-fill').forEach(bar => bar.classList.add('animated')); });
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.querySelectorAll('.skill-fill').forEach(bar => bar.classList.add('animated'));
+  });
 }, { threshold: 0.2 });
 document.querySelectorAll('.skill-bars').forEach(el => skillObs.observe(el));
+
 function animateCounter(el, target, suffix) {
-  let start = 0; const duration = 1400;
-  const step = (ts) => { if (!start) start = ts; const p = Math.min((ts-start)/duration,1); const e2 = 1-Math.pow(1-p,3); el.textContent = Math.floor(e2*target).toLocaleString()+suffix; if (p<1) requestAnimationFrame(step);
-}
-requestAnimationFrame(step);
-}
-const metricObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { const val = e.target.querySelector('.metric-val'); if (!val||val.dataset.animated) return; val.dataset.animated='1'; const raw=val.textContent.trim(); if (raw==='10,000+') animateCounter(val,10000,'+'); else if (raw==='100+') animateCounter(val,100,'+'); } });
-}, { threshold: 0.4 });
-document.querySelectorAll('.metric-card').forEach(el => metricObs.observe(el));
-</script>
-</body>
-</html>e(step); };
+  let start = 0;
+  const duration = 1400;
+  const step = (ts) => {
+    if (!start) start = ts;
+    const p = Math.min((ts - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  };
   requestAnimationFrame(step);
 }
-requestAnimationFrame(step);
-}
+
 const metricObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { const val = e.target.querySelector('.metric-val'); if (!val||val.dataset.animated) return; val.dataset.animated='1'; const raw=val.textContent.trim(); if (raw==='10,000+') animateCounter(val,10000,'+'); else if (raw==='100+') animateCounter(val,100,'+'); } });
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const val = e.target.querySelector('.metric-val');
+      if (!val || val.dataset.animated) return;
+      val.dataset.animated = '1';
+      const raw = val.textContent.trim();
+      if (raw === '10,000+') animateCounter(val, 10000, '+');
+      else if (raw === '100+') animateCounter(val, 100, '+');
+    }
+  });
 }, { threshold: 0.4 });
 document.querySelectorAll('.metric-card').forEach(el => metricObs.observe(el));
 </script>
